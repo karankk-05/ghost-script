@@ -1,0 +1,5 @@
+.build/
+.swiftpm/
+Spikes/out/
+GhostScreen.app/
+.DS_Store
