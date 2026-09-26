@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Build artifacts
+GhostScreen_source/.build/
+GhostScreen_source/GhostScreen.app/
+
+# Temp user data
+ss/*.png
+ss/archive/*.png
+delivery/*.md
+delivery/custom_prompt.txt
+
+# Do not track the windows plan as requested
+windows_migration_plan.md
