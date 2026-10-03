@@ -31,15 +31,22 @@ def main():
             custom_text = f.read().strip()
     else:
         custom_text = ""
-        
+
+    FOLLOWUP_SYSTEM = """This is a follow-up question. Follow these rules strictly:
+1. If the screenshots show code with failing test cases or a compilation error, analyse the code in detail and pinpoint the exact mistakes. Give the line number and the specific change needed. Do NOT rewrite the entire code. Keep it short.
+2. If a general query is asked, answer it concisely.
+3. DO NOT use markdown code blocks (do not use ```). Give the answer in plain text only.
+4. Output nothing but the answer. Zero conversational filler."""
+
     if custom_text and custom_text.lower() != "cpp":
-        prompt = custom_text
+        prompt = FOLLOWUP_SYSTEM + "\n\nUser's follow-up: " + custom_text
     else:
-        prompt = """These images together form a single question (they may show different scrolled parts of the same problem). Solve the question in C++. Follow these instructions strictly:
+        prompt = """These images together form a single question (they may show different scrolled parts of the same problem). Give the solution using the most optimal approach. Handle all edge cases and ensure it does not TLE. Take your time, but the solution must run correctly on the first attempt. Follow these instructions strictly:
 1. If it is a multiple-choice question (MCQ), output ONLY the correct option(s) (e.g., A, C). Note that there may be multiple correct answers. Provide absolutely no explanation.
-2. If it is a coding question, output ONLY the raw C++ code. DO NOT use markdown code blocks (do not use ```). DO NOT write any comments or explanations. You MUST use and complete the exact class/function template shown on the right side of the code editor in the images.
-3. Write the code exactly like a typical human competitive programmer or student. Use short, common variable names (e.g., n, arr, i, j, ans) instead of verbose, highly descriptive AI-style names.
-4. Output nothing but the final answer. Zero conversational filler."""
+2. The preferred language is C++. However, if the question explicitly asks for another language (SQL, Bash, etc.), use that language instead.
+3. If it is a coding question, output ONLY the raw code. DO NOT use markdown code blocks (do not use ```). DO NOT write any comments or explanations. You MUST use and complete the exact class/function template shown on the right side of the code editor in the images.
+4. Use highly compressed but intuitive variable names (max 3 letters, e.g., n, ar, i, j, ans, mp, st, res). Use the 'using' keyword or helper functions to reduce clutter only when something is genuinely redundant in the code. Do not overdo it.
+5. Output nothing but the final answer. Zero conversational filler."""
 
 
     
