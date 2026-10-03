@@ -41,19 +41,14 @@ def main():
     if custom_text and custom_text.lower() != "cpp":
         prompt = FOLLOWUP_SYSTEM + "\n\nUser's follow-up: " + custom_text
     else:
-        prompt = """These images together form a single question (they may show different scrolled parts of the same problem). Give the solution using the most optimal approach. Handle all edge cases and ensure it does not TLE. Take your time, but the solution must run correctly on the first attempt. Follow these instructions strictly:
-1. If it is a multiple-choice question (MCQ), output ONLY the correct option(s) (e.g., A, C). Note that there may be multiple correct answers. Provide absolutely no explanation.
-2. The preferred language is C++. However, if the question explicitly asks for another language (SQL, Bash, etc.), use that language instead.
-3. If it is a coding question, output ONLY the raw code. DO NOT use markdown code blocks (do not use ```). DO NOT write any comments or explanations. You MUST use and complete the exact class/function template shown on the right side of the code editor in the images.
-4. Use highly compressed but intuitive variable names (max 3 letters, e.g., n, ar, i, j, ans, mp, st, res). Use the 'using' keyword or helper functions to reduce clutter only when something is genuinely redundant in the code. Do not overdo it.
-5. Output nothing but the final answer. Zero conversational filler."""
+        prompt = "solve this given mcq question, answer only yhe final letter, theere can be muitple answers possible. no explanation needed"
 
 
     
     cmd = [
         "/Users/karan/.local/bin/agy",
         "--model", "gemini-3.8-flash",
-        "--effort", "high",
+        "--effort", "low",
         "--dangerously-skip-permissions",
         "-p", f"{prompt}" + (f" {images_str}" if images_str else "")
     ]
