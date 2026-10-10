@@ -1,0 +1,152 @@
+:root {
+  --bg-alpha: 0.78;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+body {
+  font: 15px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: auto;
+}
+
+/* WHITE THEME (Default) */
+body.white { color: rgba(255, 255, 255, 0.96); }
+body.white ::selection { background: rgba(124, 184, 255, 0.35); }
+body.white a { color: #7cb8ff; }
+body.white code, body.white pre { background: rgba(255, 255, 255, 0.09); }
+body.white .copy-btn { color: rgba(255, 255, 255, 0.85); background: rgba(255, 255, 255, 0.14); }
+body.white .copy-btn:hover { background: rgba(255, 255, 255, 0.24); }
+body.white .copy-btn.copied { color: #8ee59a; }
+body.white blockquote { border-left: 3px solid rgba(255, 255, 255, 0.35); color: rgba(255, 255, 255, 0.75); }
+body.white th, body.white td, body.white hr { border-color: rgba(255, 255, 255, 0.22); }
+
+/* BLACK THEME */
+body.black { color: #000; }
+body.black ::selection { background: rgba(0, 0, 0, 0.15); }
+body.black a { color: #0055cc; }
+body.black code, body.black pre { background: rgba(0, 0, 0, 0.05); }
+body.black .copy-btn { color: rgba(0, 0, 0, 0.65); background: rgba(0, 0, 0, 0.1); }
+body.black .copy-btn:hover { background: rgba(0, 0, 0, 0.2); }
+body.black .copy-btn.copied { color: #2ea043; }
+body.black blockquote { border-left: 3px solid rgba(0, 0, 0, 0.35); color: rgba(0, 0, 0, 0.75); }
+body.black th, body.black td, body.black hr { border-color: rgba(0, 0, 0, 0.22); }
+
+/* GREEN THEME */
+body.green { color: #6A9955; }
+body.green ::selection { background: rgba(106, 153, 85, 0.35); }
+body.green a { color: #5c8b4b; }
+body.green code, body.green pre { background: rgba(106, 153, 85, 0.09); }
+body.green .copy-btn { color: rgba(106, 153, 85, 0.85); background: rgba(106, 153, 85, 0.14); }
+body.green .copy-btn:hover { background: rgba(106, 153, 85, 0.24); }
+body.green .copy-btn.copied { color: #4a6d3f; }
+body.green blockquote { border-left: 3px solid rgba(106, 153, 85, 0.35); color: rgba(106, 153, 85, 0.75); }
+body.green th, body.green td, body.green hr { border-color: rgba(106, 153, 85, 0.22); }
+
+#content {
+  min-height: 100vh;
+  padding: 18px 12px 8px; /* extra top room for the native drag strip */
+  background: transparent;
+  border-radius: 12px;
+  overflow-wrap: break-word;
+}
+
+.placeholder { opacity: 0.45; }
+
+#mirror-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 8px 14px 6px;
+  background: rgba(200, 30, 30, 0.92);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px 12px 0 0;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  margin: 0.9em 0 0.4em;
+}
+h1:first-child, h2:first-child, h3:first-child { margin-top: 0.1em; }
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.25em; }
+h3 { font-size: 1.1em; }
+
+p, ul, ol { margin: 0.45em 0; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 0.15em 0; }
+
+a { text-decoration: none; }
+
+code {
+  font: 12.5px/1.5 "SF Mono", ui-monospace, Menlo, monospace;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  position: relative;
+  border-radius: 8px;
+  padding: 10px 12px;
+  overflow-x: auto;
+}
+pre code {
+  background: none;
+  padding: 0;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font: 11px/1 -apple-system, BlinkMacSystemFont, sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  -webkit-user-select: none;
+  user-select: none;
+}
+pre:hover .copy-btn { opacity: 1; }
+.copy-btn.copied { opacity: 1; }
+
+blockquote {
+  margin: 0.5em 0;
+  padding: 0.1em 0 0.1em 0.9em;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0.6em 0;
+}
+th, td {
+  border-style: solid;
+  border-width: 1px;
+  padding: 4px 9px;
+}
+
+hr {
+  border: none;
+  border-top-style: solid;
+  border-top-width: 1px;
+  margin: 0.9em 0;
+}
+
+img { max-width: 100%; }
+
+/* Hide scrollbar */
+::-webkit-scrollbar { display: none; }
+* { -ms-overflow-style: none; scrollbar-width: none; }

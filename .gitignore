@@ -1,5 +1,7 @@
 # macOS
 .DS_Store
+__pycache__/
+*.pyc
 
 # Build artifacts
 GhostScreen_source/.build/
@@ -13,3 +15,35 @@ delivery/custom_prompt.txt
 
 # Do not track the windows plan as requested
 windows_migration_plan.md
+
+# Private distribution outputs (never share owner tooling or signing keys)
+release/
+fuckerrank_source/Sources/fuckerrank/Generated/
+fuckerrank_source/.release-staging/
+fuckerrank_source/.build/
+*.key
+
+# Generated dependencies, build products, and packages
+node_modules/
+.build/
+.swiftpm/
+*.app/
+*.o
+*.obj
+*.exe
+*.dll
+*.dmg
+*.pkg
+*.log
+cc_ncl_djac/RDKit.zip
+
+# Temporary screenshots in nested archive folders
+ss/archive/**/*.png
+
+# Local credentials and signing identities
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+cc_ncl_djac/RDKit/windows/RustDesk*.toml

@@ -1,0 +1,8 @@
+.build/
+.swiftpm/
+Spikes/out/
+fuckerrank.app/
+.DS_Store
+Sources/fuckerrank/Generated/
+.release-staging/
+*.key
